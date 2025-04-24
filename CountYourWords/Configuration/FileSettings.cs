@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace CountYourWords.Configuration
 {
-    class FileSettings
+    public class FileSettings
     {
         public string InputFilePath { get; set; }
     }

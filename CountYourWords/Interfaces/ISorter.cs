@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace CountYourWords.Interfaces
 {
-    interface ISorter
+    public interface ISorter
     {
         List<WordCount> Sort(List<WordCount> words);
     }

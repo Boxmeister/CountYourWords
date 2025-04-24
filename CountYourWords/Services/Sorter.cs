@@ -10,6 +10,7 @@ namespace CountYourWords.Services
 {
     public class Sorter : ISorter
     {
+        public Sorter() { }
         public List<WordCount> Sort(List<WordCount> countedWordList)
         {
             for (int i = 0; i < countedWordList.Count - 1; i++)

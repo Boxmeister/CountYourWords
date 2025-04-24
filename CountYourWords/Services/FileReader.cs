@@ -9,6 +9,7 @@ namespace CountYourWords.Services
 {
     public class FileReader : IFileReader
     {
+        public FileReader() { }
         public string ReadFile(string path)
         {
             try
@@ -20,9 +21,9 @@ namespace CountYourWords.Services
             {
                 return "FileNotFoundException";
             }
-            catch (Exception e)
+            catch (Exception)
             {
-                return $"UnExpectedError,{e}";
+                throw;
             }
         }
     }

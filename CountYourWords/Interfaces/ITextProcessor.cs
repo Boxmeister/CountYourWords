@@ -12,5 +12,6 @@ namespace CountYourWords.Interfaces
         string CleanInput(string input);
         List<string> SplitInput(string input);
         List<WordCount> CountWords(List<string> input);
+        public List<WordCount> ProcessText();
     }
 }

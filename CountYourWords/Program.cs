@@ -21,8 +21,11 @@ var host = Host.CreateDefaultBuilder(args)
     })
     .Build();
 
-// Resolve services
-var processor = host.Services.GetRequiredService<ITextProcessor>();
-//var result = processor.ProcessWords();
 
-// Output result...
+var processor = host.Services.GetRequiredService<ITextProcessor>();
+var result = processor.ProcessText();
+if (result != null)
+{
+    result.ForEach(w => Console.WriteLine($"{w.Word} {w.Count}"));
+
+}
