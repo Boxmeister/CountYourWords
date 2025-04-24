@@ -28,7 +28,7 @@ public class TextProcessorTests
         //Act
         var result = _textProcessor.SplitInput(input);
         //Assert
-        Assert.AreEqual(6, result.Count());
+        Assert.AreEqual(8, result.Count());
     }
 
     [TestMethod]
