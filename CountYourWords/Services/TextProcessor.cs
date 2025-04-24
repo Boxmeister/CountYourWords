@@ -21,7 +21,21 @@ namespace CountYourWords.Services
 
         public List<WordCount> CountWords(List<string> input)
         {
-            throw new NotImplementedException();
+            List<WordCount> wordCounts = new List<WordCount>();
+            foreach (var word in input)
+            {
+                var wordCount = wordCounts.Where(w => w.Word == word).FirstOrDefault();
+                if (wordCount != null)
+                {
+                    wordCount.Count += 1;
+                }
+                else
+                {
+                    wordCounts.Add(new WordCount(word, 1));
+                }
+            }
+            return wordCounts;
+
         }
 
         public List<string> SplitInput(string input)

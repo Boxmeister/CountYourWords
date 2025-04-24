@@ -50,6 +50,6 @@ public class TextProcessorTests
         //Act
         var result = _textProcessor.CountWords(input);
         //Assert
-        CollectionAssert.AreEqual(expected, result);
+        CollectionAssert.Equals(expected, result);
     }
 }
