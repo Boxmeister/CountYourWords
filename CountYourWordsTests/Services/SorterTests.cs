@@ -11,11 +11,8 @@ namespace CountYourWords.Services.Tests
     [TestClass()]
     public class SorterTests
     {
-        private Sorter? _sorter;
-        public void Setup()
-        {
-            _sorter = new Sorter();
-        }
+        private Sorter _sorter = new Sorter();
+
 
         [TestMethod()]
         public void SortWordsTest()
@@ -46,5 +43,4 @@ namespace CountYourWords.Services.Tests
         }
 
     }
-}
 }

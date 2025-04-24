@@ -8,6 +8,6 @@ namespace CountYourWords.Interfaces
 {
     interface ISorter
     {
-        void Sort(List<string> words);
+        List<string> Sort(List<string> words);
     }
 }

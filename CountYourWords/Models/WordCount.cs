@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace CountYourWords.Models
 {
-    class WordCount
+    public class WordCount
     {
         public string Word { get; set; }
         public int Count { get; set; }

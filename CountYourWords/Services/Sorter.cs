@@ -9,7 +9,7 @@ namespace CountYourWords.Services
 {
     public class Sorter : ISorter
     {
-        public void Sort(List<string> words)
+        public List<string> Sort(List<string> words)
         {
             throw new NotImplementedException();
         }

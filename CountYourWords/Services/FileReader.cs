@@ -9,9 +9,21 @@ namespace CountYourWords.Services
 {
     public class FileReader : IFileReader
     {
-        string IFileReader.ReadFile(string path)
+        public string ReadFile(string path)
         {
-            throw new NotImplementedException();
+            try
+            {
+                string content = File.ReadAllText(path);
+                return string.IsNullOrWhiteSpace(content) ? "FileEmptyException" : content;
+            }
+            catch (FileNotFoundException)
+            {
+                return "FileNotFoundException";
+            }
+            catch (Exception e)
+            {
+                return $"UnExpectedError,{e}";
+            }
         }
     }
 }

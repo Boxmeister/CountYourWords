@@ -1,4 +1,5 @@
 ﻿using CountYourWords.Interfaces;
+using CountYourWords.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -16,7 +17,7 @@ namespace CountYourWords.Services
             return cleaned.ToLower();
         }
 
-        public Dictionary<string, int> CountWords(List<string> input)
+        public List<WordCount> CountWords(List<string> input)
         {
             throw new NotImplementedException();
         }

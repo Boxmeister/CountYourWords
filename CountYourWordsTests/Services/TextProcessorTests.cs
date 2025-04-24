@@ -5,6 +5,8 @@ namespace CountYourWordsTests;
 [TestClass]
 public class TextProcessorTests
 {
+    private TextProcessor _textProcessor = new TextProcessor();
+
     [TestMethod]
     public void CleanInputTest()
     {
@@ -13,26 +15,29 @@ public class TextProcessorTests
         var expected = "hello world how are you love you ever";
 
         //Act
-        var result = TextProcessor.CleanInput(input);
+        var result = _textProcessor.CleanInput(input);
         //Assert
         Assert.AreEqual(expected, result);
     }
+
     [TestMethod]
     public void WordSplitTest()
     {
         //Arrange
         var input = "hello world how are you love you ever";
         //Act
-        var result = TextProcessor.WordSplit(input);
+        var result = _textProcessor.SplitInput(input);
         //Assert
-        Assert.Equals(6, result.Count());
+        Assert.AreEqual(6, result.Count());
     }
+
     [TestMethod]
     public void WordCountTest()
     {
         //Arrange
-        var input = "hello world how are you love you ever";
-        Dictionary<string, int> expected = new Dictionary<string, int>{
+        var input = new List<string> { "hello", "world", "how", "are", "you", "love", "you", "ever" };
+        Dictionary<string, int> expected = new Dictionary<string, int>
+        {
             { "hello", 1 },
             { "world", 1 },
             { "how", 1 },
@@ -43,9 +48,8 @@ public class TextProcessorTests
         };
 
         //Act
-        var result = TextProcessor.WordCount(input);
+        var result = _textProcessor.CountWords(input);
         //Assert
         CollectionAssert.AreEqual(expected, result);
     }
-
 }

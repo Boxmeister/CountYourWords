@@ -23,6 +23,6 @@ var host = Host.CreateDefaultBuilder(args)
 
 // Resolve services
 var processor = host.Services.GetRequiredService<ITextProcessor>();
-var result = processor.ProcessWords();
+//var result = processor.ProcessWords();
 
 // Output result...
