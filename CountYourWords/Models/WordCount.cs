@@ -8,6 +8,11 @@ namespace CountYourWords.Models
 {
     public class WordCount
     {
+        public WordCount(string Word, int Count)
+        {
+            this.Word = Word;
+            this.Count = Count;
+        }
         public string Word { get; set; }
         public int Count { get; set; }
     }
