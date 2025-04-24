@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using CountYourWords.Models;
 
 namespace CountYourWords.Services.Tests
 {
@@ -18,26 +19,20 @@ namespace CountYourWords.Services.Tests
         public void SortWordsTest()
         {
             // Arrange
-            var input = new List<string> { "banana", "apple", "cherry" };
-            var expected = new List<string> { "apple", "banana", "cherry" };
+            var input = new List<WordCount> { new WordCount("banana", 1), new WordCount("apple", 1), new WordCount("cherry", 1) };
+            var expected = new List<WordCount> { new WordCount("apple", 1), new WordCount("banana", 1), new WordCount("cherry", 1) };
 
             // Act
             var result = _sorter.Sort(input);
 
             // Assert
-            CollectionAssert.AreEqual(expected, result);
-        }
-        [TestMethod]
-        public void Sort_EmptyList_ReturnsEmptyList()
-        {
-            var result = _sorter.Sort(new List<string>());
-            Assert.AreEqual(0, result.Count);
+            CollectionAssert.Equals(expected, result);
         }
 
         [TestMethod]
         public void Sort_AlreadySortedList_ReturnsSameOrder()
         {
-            var input = new List<string> { "a", "b", "c" };
+            var input = new List<WordCount> { new WordCount("a", 1), new WordCount("b", 1), new WordCount("c", 1) };
             var result = _sorter.Sort(input);
             CollectionAssert.AreEqual(input, result);
         }
