@@ -1,3 +1,4 @@
+using CountYourWords.Models;
 using CountYourWords.Services;
 
 namespace CountYourWordsTests;
@@ -36,15 +37,14 @@ public class TextProcessorTests
     {
         //Arrange
         var input = new List<string> { "hello", "world", "how", "are", "you", "love", "you", "ever" };
-        Dictionary<string, int> expected = new Dictionary<string, int>
-        {
-            { "hello", 1 },
-            { "world", 1 },
-            { "how", 1 },
-            { "are", 1 },
-            { "you", 2 },
-            { "love", 1 },
-            { "ever", 1 }
+        List<WordCount> expected = new List<WordCount>{
+            {new WordCount ("hello", 1) },
+            { new WordCount ("world", 1) },
+            { new WordCount ("how", 1) },
+            { new WordCount ("are", 1) },
+            { new WordCount ("you", 2) },
+            { new WordCount ("love", 1) },
+            {new WordCount ( "ever", 1) }
         };
 
         //Act
