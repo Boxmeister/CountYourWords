@@ -13,40 +13,6 @@ namespace CountYourWords.Services
 {
     public class TextProcessor : ITextProcessor
     {
-        private readonly IFileReader _reader;
-        private readonly string _filePath;
-        private readonly ISorter _sorter;
-        public TextProcessor(IFileReader reader, ISorter sorter, IOptions<FileSettings> options)
-        {
-            _reader = reader;
-            _sorter = sorter;
-            _filePath = options.Value.InputFilePath;
-        }
-
-        public List<WordCount> ProcessText()
-        {
-            var input = _reader.ReadFile(_filePath);
-
-            if (input == "FileEmptyException")
-            {
-                Console.Error.WriteLine("File is empty. Please add text to the file.");
-                return null;
-            }
-            else if (input == "FileNotFoundException")
-            {
-                Console.Error.WriteLine("File not found. Please check the file path.");
-                return null;
-            }
-            else
-            {
-                var cleaned = CleanInput(input);
-                var split = SplitInput(cleaned);
-                var counted = CountWords(split);
-                var sorted = _sorter.Sort(counted);
-                return sorted;
-            }
-        }
-
 
         public string CleanInput(string input)
         {

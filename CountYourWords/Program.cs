@@ -18,12 +18,13 @@ var host = Host.CreateDefaultBuilder(args)
         services.AddSingleton<IFileReader, FileReader>();
         services.AddSingleton<ITextProcessor, TextProcessor>();
         services.AddSingleton<ISorter, Sorter>();
+        services.AddSingleton<TextProcessorHandler>();
     })
     .Build();
 
 
-var processor = host.Services.GetRequiredService<ITextProcessor>();
-var result = processor.ProcessText();
+var handler = host.Services.GetRequiredService<TextProcessorHandler>();
+var result = handler.ProcessText();
 if (result != null)
 {
     result.ForEach(w => Console.WriteLine($"{w.Word} {w.Count}"));

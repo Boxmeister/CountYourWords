@@ -7,11 +7,11 @@ using System.Threading.Tasks;
 
 namespace CountYourWords.Interfaces
 {
-    interface ITextProcessor
+    public interface ITextProcessor
     {
         string CleanInput(string input);
         List<string> SplitInput(string input);
         List<WordCount> CountWords(List<string> input);
-        public List<WordCount> ProcessText();
+
     }
 }
