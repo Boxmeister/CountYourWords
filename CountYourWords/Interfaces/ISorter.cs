@@ -1,4 +1,5 @@
-﻿using System;
+﻿using CountYourWords.Models;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -8,6 +9,6 @@ namespace CountYourWords.Interfaces
 {
     interface ISorter
     {
-        List<string> Sort(List<string> words);
+        List<WordCount> Sort(List<WordCount> words);
     }
 }
