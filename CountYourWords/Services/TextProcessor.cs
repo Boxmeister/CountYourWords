@@ -13,7 +13,9 @@ namespace CountYourWords.Services
     {
         public string CleanInput(string input)
         {
-            var cleaned = Regex.Replace(input, @"[^a-zA-Z\s]", "");
+            var numbersAndSymbolsRemoved = Regex.Replace(input, @"[^a-zA-Z\s]", "");
+            //cleans up double spaces
+            var cleaned = Regex.Replace(numbersAndSymbolsRemoved, @"\s+", " ");
             return cleaned.ToLower();
         }
 
@@ -24,7 +26,7 @@ namespace CountYourWords.Services
 
         public List<string> SplitInput(string input)
         {
-            throw new NotImplementedException();
+            return input.Split(' ').ToList();
         }
     }
 }
